@@ -1,0 +1,24 @@
+<div class="row m-5">
+  <div class="col">
+    <h3>Ng if</h3>
+
+    <div *ngIf="showCard" class="card text-white bg-primary mb-3 mt-5" style="max-width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ dataCard.person }}</h5>
+        <p class="card-text">{{ dataCard.sentence }}</p>
+      </div>
+    </div>
+
+    <button (click)="showCard = !showCard" class="btn btn-outline-info">
+      Mostrar/Ocultar
+    </button>
+  </div>
+
+  <div class="col">
+    <h3 class="text-center">Ng For</h3>
+    
+    <ul class="list-group">
+      <li *ngFor="let villain of villains; let i = index;" class="list-group-item">{{ i + 1 }} - {{ villain }}</li>
+    </ul>
+  </div>
+</div>
