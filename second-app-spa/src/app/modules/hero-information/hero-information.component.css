@@ -1,0 +1,12 @@
+.vertical-center {
+  vertical-align: middle;
+}
+
+.flash-icon {
+  color: yellow;
+  background-color: red;
+  text-align: center;
+  width: 64px !important;
+  height: 64px !important;
+  border-radius: 50px;
+}
