@@ -1,0 +1,16 @@
+<div class="card Row">
+  <img [src]="hero.img" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ hero.name }}</h5>
+    <p class="card-text">{{ hero.bio }}</p>
+  </div>
+  
+  <div class="text-center">
+    <b>{{ hero.appearance | date: 'y' }}</b>  
+  </div>
+  
+  <div class="p-3">
+    <a class="btn btn-outline-primary btn-block" [routerLink]="['/hero-information', index]" >Ver más... a</a>
+    <button class="btn btn-outline-primary btn-block" (click)="onSeeMore()">Ver más... button</button>
+  </div>
+</div>

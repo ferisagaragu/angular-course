@@ -10,6 +10,7 @@ import { AboutComponent } from './modules/about/about.component';
 import { APP_ROUTING } from './core/routes/app.routes';
 import { HeroesService } from './core/http/heroes.service';
 import { HeroInformationComponent } from './modules/hero-information/hero-information.component';
+import { CardHeroComponent } from './modules/card-hero/card-hero.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HeroInformationComponent } from './modules/hero-information/hero-inform
     HomeComponent,
     HeroesComponent,
     AboutComponent,
-    HeroInformationComponent
+    HeroInformationComponent,
+    CardHeroComponent
   ],
   imports: [
     BrowserModule,

@@ -1,19 +1,10 @@
 <div class="card-columns animated fadeIn">
-  <div *ngFor="let hero of heroes; let i = index;" class="card Row">
-    <img [src]="hero.img" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{ hero.name }}</h5>
-      <p class="card-text">{{ hero.bio }}</p>
-    </div>
-    
-    <div class="text-center">
-      <b>{{ hero.appearance }}</b>  
-    </div>
-    
-    <div class="p-3">
-      <a class="btn btn-outline-primary btn-block" [routerLink]="['/hero-information', i]" >Ver más... a</a>
-      <button class="btn btn-outline-primary btn-block" (click)="onSeeMore(i)">Ver más... button</button>
-    </div>
-  </div>
+  <app-card-hero 
+    *ngFor="let hero of heroes; let i = index;" 
+    [hero]="hero" 
+    [index]="i"
+    (onClickMore)="onSeeMore($event)"
+  >
+  </app-card-hero>
 </div>
  
