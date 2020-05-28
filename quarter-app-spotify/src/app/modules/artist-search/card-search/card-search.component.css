@@ -1,0 +1,22 @@
+.form-control:focus {
+  border-color: #28a745 !important;
+  box-shadow: 0 0 0 0.2rem #28a7466e !important;
+}
+
+.artist-img {
+  width: 365px;
+}
+
+.followers {
+  position: absolute;
+}
+
+.followers-div {
+  margin-top: -10px;
+  margin-left: -10px;
+  z-index: 1000;
+}
+
+.btn-show-artist {
+  width: 330px;
+}

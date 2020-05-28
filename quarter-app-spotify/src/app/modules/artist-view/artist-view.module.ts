@@ -2,15 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ArtistViewRoutingModule } from './artist-view-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardViewComponent } from './card-view/card-view.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [CardViewComponent],
   imports: [
     CommonModule,
-    ArtistViewRoutingModule
+    ArtistViewRoutingModule,
+    SharedModule
   ]
 })
 export class ArtistViewModule { }

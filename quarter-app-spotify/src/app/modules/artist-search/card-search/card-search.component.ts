@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SpotifyService } from '../../../core/http/spotify.service';
+import { ArtistModel } from '../../../core/models/artist.model';
+import { swal } from '../../../core/functions/swal.function';
 
 @Component({
   selector: 'app-card-search',
@@ -7,9 +10,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardSearchComponent implements OnInit {
 
-  constructor() { }
+  searching: boolean;
+  artists: Array<ArtistModel>;
 
-  ngOnInit(): void {
+  constructor(private spotifyService: SpotifyService) {
+    this.searching = false;
+    this.artists = [];
+  }
+
+  ngOnInit(): void { }
+
+
+  search(evt: HTMLInputElement) {
+    if (evt.value) {
+      this.searching = true;
+
+      this.spotifyService.searchArtist(evt.value).subscribe((resp: any) => {
+        this.artists = resp.data;
+        this.searching = false;
+      }, () => {
+        this.artists = [];
+        this.searching = false;
+        evt.value = '';
+
+        swal.fire({
+          title: 'Upps hemos tenido problemas con nuestros servidores',
+          icon: 'error'
+        });
+      });
+    } else {
+      this.artists = [];
+    }
   }
 
 }

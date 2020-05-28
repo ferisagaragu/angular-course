@@ -65,3 +65,26 @@ hr {
 .fadeIn {
   animation-name: fadeIn;
 }
+
+.card {
+  box-shadow: 0 4px 8px 0 #1db9546e, 0 6px 20px 0 #1db9546e;
+}
+
+.badge-spotify {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 3px 6px;
+  border: 1px solid transparent;
+  min-width: 10px;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: 99999px
+}
+
+.badge-spotify.badge-spotify-default {
+  background-color: #28a745;
+}

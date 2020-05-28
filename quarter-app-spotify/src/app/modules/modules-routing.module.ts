@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ARTIST_VIEW_ROUTES } from '../core/routes/artist-view.routes';
 import { BASE_ROUTES } from '../core/routes/base.routes';
 import { ARTIST_SEARCH_ROUTES } from '../core/routes/artist-search.routes';
+import {ARTIST_DETAIL_ROUTES} from "../core/routes/artist-detail.routes";
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
     children: [
       ...BASE_ROUTES,
       ...ARTIST_VIEW_ROUTES,
-      ...ARTIST_SEARCH_ROUTES
+      ...ARTIST_SEARCH_ROUTES,
+      ...ARTIST_DETAIL_ROUTES
     ]
   }
 ];
