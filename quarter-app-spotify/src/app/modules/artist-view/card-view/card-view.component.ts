@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SpotifyService } from 'src/app/core/http/spotify.service';
-import { AlbumModel } from 'src/app/core/models/album.model';
-import { swal } from 'src/app/core/functions/swal.function';
+import { SpotifyService } from '../../../core/http/spotify.service';
+import { AlbumModel } from '../../../core/models/album.model';
+import { swal } from '../../../core/functions/swal.function';
 
 @Component({
   selector: 'app-card-view',
@@ -13,7 +13,7 @@ export class CardViewComponent implements OnInit {
   releases: Array<AlbumModel> = [];
   loading: boolean;
 
-  constructor(private spotifyService: SpotifyService) { 
+  constructor(private spotifyService: SpotifyService) {
     this.releases = [];
     this.loading = true;
   }

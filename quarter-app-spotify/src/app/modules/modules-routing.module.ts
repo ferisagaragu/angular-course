@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ARTIST_VIEW_ROUTES } from '../core/routes/artist-view.routes';
 import { BASE_ROUTES } from '../core/routes/base.routes';
 import { ARTIST_SEARCH_ROUTES } from '../core/routes/artist-search.routes';
-import {ARTIST_DETAIL_ROUTES} from "../core/routes/artist-detail.routes";
+import { ARTIST_DETAIL_ROUTES } from "../core/routes/artist-detail.routes";
 
 const routes: Routes = [
   {

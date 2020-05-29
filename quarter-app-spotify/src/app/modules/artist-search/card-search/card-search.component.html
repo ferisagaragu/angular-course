@@ -2,9 +2,9 @@
   <div class="col-md-12">
     <input
       #input
-      class="form-control" 
-      type="text" 
-      placeholder="Buscar artista..." 
+      class="form-control"
+      type="text"
+      placeholder="Buscar artista..."
       (keyup)="search(input)"
     />
   </div>
@@ -18,20 +18,25 @@
           <span class="badge-spotify badge-spotify-default followers">{{ artist.followersTotal | number }}</span>
         </div>
       </div>
-      
-      <img [src]="artist.image" class="artist-img" [alt]="artist.name" />
+
+      <img
+        [src]="artist.images | image "
+        [alt]="artist.name"
+        class="artist-img puntero"
+        (click)="onSelectArtist(artist.id)"
+      />
 
       <div class="card-body">
         <h3 class="card-title text-success">{{ artist.name }}</h3>
-        
-        <div 
-          *ngFor="let genre of artist.genres" 
+
+        <div
+          *ngFor="let genre of artist.genres"
           class="badge-spotify badge-spotify-default mr-2"
         >
           {{ genre }}
         </div>
       </div>
-      
+
       <div class="text-center">
         <button class="btn btn-outline-light mb-3 btn-show-artist">
           Ver artista
