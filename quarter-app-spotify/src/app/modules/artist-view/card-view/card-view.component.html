@@ -6,7 +6,13 @@
 
     <div class="card-body">
       <h3 class="card-title text-success">{{ releas.name }}</h3>
-      <div *ngFor="let artist of releas.albumArtist" class="badge-spotify badge-spotify-default mr-2">{{ artist }}</div>
+
+      <a
+        *ngFor="let artist of releas.artists"
+        [routerLink]="['/artist-detail', artist.id]"
+        class="badge-spotify badge-spotify-default mr-2 puntero">
+        {{ artist.name }}
+      </a>
     </div>
   </div>
-</div>  
+</div>

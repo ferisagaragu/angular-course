@@ -1,1 +1,65 @@
-<p>{{ artistId }}</p>
+<app-load *ngIf="!artist || !topTracks"></app-load>
+
+<div *ngIf="artist" class="row">
+  <div class="col-md-2 text-center">
+    <img [src]="artist.images | image" [alt]="artist.name" class="img-circle" />
+  </div>
+
+  <div class="col-md-3 mt-4">
+    <h3>{{ artist.name }}</h3>
+    <a [href]="artist.externalUrls">Ir a pagina del artista</a>
+  </div>
+
+  <div class="col-md-7 text-right mt-5">
+    <a class="btn btn-outline-info text-info" [routerLink]="['/artist-search']" >
+      <i class="fas fa-undo"></i>
+    </a>
+  </div>
+</div>
+
+<table *ngIf="topTracks" class="table table-hover table-dark mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Foto</th>
+      <th scope="col">Album</th>
+      <th scope="col">Canción</th>
+      <th scope="col">Vista previa</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let topTrack of topTracks">
+      <td>
+        <img
+          [src]="topTrack.images | image"
+          [alt]="topTrack.name"
+          class="album-image"
+        />
+      </td>
+
+      <td>
+        <div class="mt-3">
+          {{ topTrack.albumName }}
+        </div>
+      </td>
+
+      <td>
+        <div class="mt-3">
+          {{ topTrack.name }}
+        </div>
+      </td>
+
+      <td>
+        <iframe
+          [src]="topTrack.previewUrl | urlSecurity"
+          width="300"
+          height="80"
+          frameborder="0"
+          allowtransparency="true"
+          allow="encrypted-media"
+        >
+        </iframe>
+      </td>
+    </tr>
+  </tbody>
+</table>

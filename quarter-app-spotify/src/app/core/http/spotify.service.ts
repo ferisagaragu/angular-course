@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { AlbumModel } from '../models/album.model';
 import { ArtistModel } from '../models/artist.model';
 import { HttpResponseInterface } from '../interfaces/http-response.interface';
+import { TopTrackModel } from "../models/top-track.model";
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,20 @@ export class SpotifyService extends BaseHttpService{
     );
   }
 
+  getArtistById(id: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/artists/${id}`, {
+      headers: this.headers
+    });
+  }
+
+  getTopTrack(id: string): Observable<HttpResponseInterface<Array<TopTrackModel>>> {
+    return this.http.get(`${this.baseUrl}/artists/${id}/top-tracks?country=us`, {
+      headers: this.headers
+    }).pipe(
+      map(res => this.responseTracksReturn(res))
+    );
+  }
+
 
   private getToken(): Observable<any> {
     return this.http.post('https://accounts.spotify.com/api/token',
@@ -58,8 +73,13 @@ export class SpotifyService extends BaseHttpService{
 
   private responseArtistReturn(res: any): HttpResponseInterface<Array<ArtistModel>> {
     const response: any = <HttpResponseInterface<Array<ArtistModel>>>{};
-    console.log(res);
     response.data = res.artists.items.map((model: any) => new ArtistModel(model));
+    return response;
+  }
+
+  private responseTracksReturn(res: any): HttpResponseInterface<Array<TopTrackModel>> {
+    const response: any = <HttpResponseInterface<Array<TopTrackModel>>>{};
+    response.data = res.tracks.map((model: any) => new TopTrackModel(model));
     return response;
   }
 
