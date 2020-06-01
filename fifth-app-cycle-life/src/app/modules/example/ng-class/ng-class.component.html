@@ -1,0 +1,16 @@
+<h3 class="mt-5">NgCLass</h3>
+
+<div
+  [ngClass]="{ 'alert-primary': error, 'alert-danger': !error }"
+  class="alert"
+  role="alert"
+>
+  A simple primary alert—check it out!
+</div>
+
+<button
+  class="btn btn-outline-info"
+  (click)="error = !error"
+>
+  Cambiar
+</button>

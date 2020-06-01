@@ -1,0 +1,16 @@
+<h3 class="mt-5">Asynchronous button</h3>
+
+<button
+  class="btn btn-outline-info"
+  type="button"
+  (click)="execute()"
+  [disabled]="load"
+>
+  <i
+    [ngClass]="{ 'fa-save': !load, 'fas fa-sync-alt fa-spin': load }"
+    class="fa mr-1"
+  >
+  </i>
+  <span *ngIf="!load">Guardar</span>
+  <span *ngIf="load">Guardando cambios...</span>
+</button>

@@ -8,8 +8,12 @@ import {UrlSecurityPipe} from "../core/pipes/url-security.pipe";
 
 
 @NgModule({
-  declarations: [LoadComponent, NavbarComponent, ImagePipe,
-    UrlSecurityPipe],
+  declarations: [
+    LoadComponent,
+    NavbarComponent,
+    ImagePipe,
+    UrlSecurityPipe
+  ],
   imports: [
     CommonModule,
     RouterModule

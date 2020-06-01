@@ -1,0 +1,19 @@
+<h3>NgStyle</h3>
+
+<p [style.fontSize.px]="size">
+  Hola mundo esta es una etiqueta
+</p>
+
+<button
+  class="btn btn-outline-info mr-1"
+  (click)="size = size + 5"
+>
+  Aumentar
+</button>
+
+<button
+  class="btn btn-outline-info"
+  (click)="size = size - 5"
+>
+  Restar
+</button>
