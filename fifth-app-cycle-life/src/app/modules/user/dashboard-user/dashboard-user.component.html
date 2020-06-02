@@ -1,1 +1,9 @@
-<p>dashboard-user works!</p>
+<div class="text-center mb-5">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-outline-dark" routerLinkActive="active" [routerLink]="['new', 11]">Crear</button>
+    <button type="button" class="btn btn-outline-dark" routerLinkActive="active" [routerLink]="['edit']">Editar</button>
+    <button type="button" class="btn btn-outline-dark" routerLinkActive="active" [routerLink]="['delete']">Borrar</button>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
