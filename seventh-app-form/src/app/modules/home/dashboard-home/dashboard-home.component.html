@@ -1,1 +1,174 @@
-<p>dashboard-home works!</p>
+<h4>Formularios <small> Template </small></h4>
+<hr>
+<form #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)" >
+  <div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-8">
+        <input
+          #name="ngModel"
+          class="form-control"
+          type="text"
+          placeholder="Nombre"
+          name="name"
+          minlength="5"
+          required
+          [ngModel]="user.name"
+          [class.is-invalid]="name.invalid && name.touched"
+          [class.is-valid]="name.valid"
+        />
+
+        <small
+          *ngIf="name.invalid && name.touched"
+          class="form-text text-danger"
+        >
+          El nombre es requerido con 5 letras
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Apellido</label>
+      <div class="col-8">
+        <input
+          #lastName="ngModel"
+          class="form-control"
+          type="text"
+          placeholder="Apellido"
+          name="lastName"
+          minlength="5"
+          required
+          ngModel
+          [ngModel]="user.lastName"
+          [class.is-invalid]="lastName.invalid && lastName.touched"
+          [class.is-valid]="lastName.valid"
+        />
+
+        <small
+          *ngIf="lastName.invalid && lastName.touched"
+          class="form-text text-danger"
+        >
+          El apellido es requerido con 5 letras
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Correo</label>
+    <div class="col-8">
+      <input
+        #email="ngModel"
+        class="form-control"
+        type="email"
+        placeholder="Correo electrónico"
+        name="email"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+        minlength="5"
+        required
+        ngModel
+        [ngModel]="user.email"
+        [class.is-invalid]="email.invalid && email.touched"
+        [class.is-valid]="email.valid"
+      />
+
+      <small
+        *ngIf="email.invalid && email.touched"
+        class="form-text text-danger"
+      >
+        El correo es requerido con 5 letras y formato correcto
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Paices</label>
+    <div class="col-8">
+      <div *ngIf="countriesLoad" class="col text-right is-loading-div">
+        <i class="fas fa-circle-notch fa-spin is-loading-icon"></i>
+      </div>
+
+      <select
+        #country="ngModel"
+        class="form-control"
+        name="country"
+        required
+        ngModel
+        [ngModel]="user.country"
+        [class.is-invalid]="country.invalid && country.touched"
+        [class.is-valid]="country.valid"
+        [class.is-loading]="countriesLoad"
+        [disabled]="countriesLoad"
+      >
+        <option value="">Selecciona un país</option>
+        <option *ngFor="let country of countries" [value]="country.value">{{ country.name }}</option>
+      </select>
+
+      <small
+        *ngIf="country.invalid && country.touched"
+        class="form-text text-danger"
+      >
+        El país es requerido
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Genero</label>
+    <div class="col-8">
+      <div class="form-check form-check-inline">
+        <input
+          #gender="ngModel"
+          class="form-check-input"
+          type="radio"
+          ngModel
+          name="gender"
+          value="M"
+          required
+          [ngModel]="user.gender"
+          [class.is-invalid]="gender.invalid && gender.touched"
+          [class.is-valid]="gender.valid"
+        />
+        <label class="form-check-label">Masculino</label>
+      </div>
+
+      <div class="form-check form-check-inline">
+        <input
+          #gender="ngModel"
+          class="form-check-input"
+          type="radio"
+          name="gender"
+          value="F"
+          required
+          [ngModel]="user.gender"
+          [class.is-invalid]="gender.invalid && gender.touched"
+          [class.is-valid]="gender.valid"
+        />
+        <label class="form-check-label">Femenino</label>
+      </div>
+
+      <small
+        *ngIf="gender.invalid && gender.touched"
+        class="form-text text-danger"
+      >
+        El genero es requerido
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button type="submit" class="btn btn-outline-primary btn-block">
+        Guardar
+      </button>
+    </div>
+  </div>
+</form>
+
+
+<label>Valores</label>
+<pre>
+  {{  data | json }}
+</pre>
+

@@ -11,7 +11,7 @@ import { TopTrackModel } from "../models/top-track.model";
 @Injectable({
   providedIn: 'root'
 })
-export class SpotifyService extends BaseHttpService{
+export class SpotifyService extends BaseHttpService {
 
   constructor(public http: HttpClient) {
     super(http);

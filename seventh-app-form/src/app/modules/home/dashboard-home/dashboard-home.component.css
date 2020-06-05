@@ -1,0 +1,22 @@
+.is-loading {
+  border-color: orange !important;
+  cursor: no-drop;
+}
+
+.is-loading:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 153, 0, 0.4) !important;
+}
+
+.is-loading-div {
+  height: 0;
+}
+
+.is-loading-icon {
+  color: orange;
+  margin-right: 10px !important;
+  margin-top: 11px !important;
+}
+
+select {
+  cursor: pointer;
+}
