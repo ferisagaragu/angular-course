@@ -1,0 +1,108 @@
+<h3>Heroe <small>{{ this.hero ? this.hero.name : 'Nuevo' }}</small></h3>
+<hr>
+
+<form [formGroup]="form" (ngSubmit)="onSave()">
+
+  <div class="row">
+    <div *ngIf="id !== 'new'" class="form-group w-100">
+      <label for="firebaseId">Firebase Id</label>
+
+      <input
+        id="firebaseId"
+        type="text"
+        class="form-control"
+        placeholder="Firebase Id"
+        formControlName="id"
+      />
+
+      <small
+        class="form-text text-info"
+      >
+        Id auto generado por Firebase
+      </small>
+    </div>
+
+    <div class="form-group w-100">
+      <label for="name">Name</label>
+
+      <input
+        id="name"
+        type="text"
+        class="form-control"
+        placeholder="Nombre del heroe"
+        formControlName="name"
+        [class.is-invalid]="invalid('name')"
+        [class.is-valid]="valid('name')"
+      />
+
+      <small
+        *ngIf="invalid('name')"
+        class="form-text text-danger"
+      >
+        El nombre del heroe es requerido
+      </small>
+    </div>
+
+    <div class="form-group w-100">
+      <label for="power">El poder es requerido</label>
+
+      <input
+        id="power"
+        type="text"
+        class="form-control"
+        placeholder="Poder del heroe"
+        formControlName="power"
+        [class.is-invalid]="invalid('power')"
+        [class.is-valid]="valid('power')"
+      />
+
+      <small
+        *ngIf="invalid('power')"
+        class="form-text text-danger"
+      >
+        El poder es requerido
+      </small>
+    </div>
+
+    <div class="form-group w-100">
+      <button
+        *ngIf="form.get('state').value"
+        class="btn btn-outline-success"
+        type="button"
+        (click)="onLive()"
+      >
+        <i class="far fa-smile-beam"></i>
+        Vivo
+      </button>
+
+      <button
+        *ngIf="!form.get('state').value"
+        class="btn btn-outline-danger"
+        type="button"
+        (click)="onDeath()"
+      >
+        <i class="far fa-sad-tear"></i>
+        Muerto
+      </button>
+    </div>
+
+    <div class="col-12 text-center">
+      <button
+        class="btn btn-outline-secondary mr-2"
+        type="button"
+        [routerLink]="['/heroes']"
+      >
+        <i class="fa fa-arrow-left"></i>
+        Regresar
+      </button>
+
+      <button
+        class="btn btn-outline-primary"
+        type="submit"
+      >
+        <i class="fa fa-save"></i>
+        Guardar
+      </button>
+    </div>
+  </div>
+</form>
